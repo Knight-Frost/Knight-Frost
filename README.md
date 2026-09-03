@@ -3,9 +3,9 @@
   <img alt="Elton Sakyi. I build the parts of software that have to be right later. Permissions, ledgers, audit trails, evidence." src="assets/masthead-light.svg">
 </picture>
 
-I work on the parts of a system that are hard to fix once they are wrong: who is allowed to do what, what happened to the money, what the record says six months later, and what a result is actually based on.
+Software engineer. I work on the parts of a system that are hard to fix once they are wrong: who is allowed to do what, what happened to the money, and what a result is actually based on.
 
-Four platforms, built around that concern. Two are public, and one of them is running where you can open it.
+Mostly backend, in Laravel and PHP, with React and TypeScript on the front and some Python and Java. Four platforms below, two of them public, one running where you can open it.
 
 [Portfolio](https://elton-sakyi-portfolio.vercel.app) &nbsp;·&nbsp; [Résumé](https://elton-sakyi-portfolio.vercel.app/Elton_Sakyi_CV.pdf) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/elton-sakyi/) &nbsp;·&nbsp; [eltonsakyi@proton.me](mailto:eltonsakyi@proton.me)
 
@@ -15,9 +15,9 @@ Four platforms, built around that concern. Two are public, and one of them is ru
 
 ### [Wyncrest](https://github.com/Knight-Frost/Wyncrest) &nbsp;<sub>Laravel 12 · React · TypeScript</sub>
 
-A rent dispute is an argument about what happened. Most systems cannot settle one, because the records that would settle it can be edited.
+The `ledger_entries` table has no `updated_at` column. That is deliberate, and most of the system follows from it: a charge or payment is written once, and a correction is a new entry pointing at the one it corrects, so the original stays readable forever.
 
-Wyncrest is a rental operations platform where they cannot. Charges, payments and privileged actions are written once. A correction is a new entry that points at the one it corrects, so the original stays readable. Every administrative action is appended to a SHA-256 chained log, and a refused action is written to that log too, because an attempt to exceed authority is exactly the thing an audit needs to see.
+The same instinct runs through the administrative side. Privileged actions append to a SHA-256 chained log, and a refused action is written to that log too, since an attempt to exceed authority is exactly what an audit needs to see.
 
 I built the ledger engine, the hash-chain and its backfill migration, the twelve-capability admin model enforced server side across roughly 260 routes, and the test suite.
 
@@ -60,13 +60,13 @@ Fourteen pages, six engine modules, a documented formula set and a written log o
 
 ### Private development
 
-Two larger systems are not public yet.
+Two larger systems are still private, so nothing below is linked and none of it should carry the same weight as the four projects above. I am listing them because they are where most of my recent work went, not as evidence.
 
-**Policora** turns insurance policy documents into structured, versioned coverage information where every extracted fact links back to the page it came from, and where uncertainty is preserved instead of resolved away. Python, Java and TypeScript, with a shared contract regenerated and diffed in CI so the three languages cannot drift apart.
+**Policora** turns insurance policy documents into structured, versioned coverage information, where an extracted fact carries the page it came from and uncertainty is kept rather than resolved away. Python, Java and TypeScript, with a shared contract regenerated and diffed in CI so the three languages cannot drift apart.
 
-**Pathfinder** connects federal labour, occupation and education data into one queryable layer for education and career decisions. Sources stay distinguishable rather than averaged together, and a missing statistic renders as missing rather than as zero.
+**Pathfinder** connects federal labour, occupation and education data into one queryable layer. Sources stay distinguishable instead of averaged, and a missing statistic renders as missing rather than as zero.
 
-Both are in development and neither is production ready. I am glad to walk through either one.
+Neither is production ready. Both are readable in full on request.
 
 ---
 
@@ -88,11 +88,11 @@ A few rules that show up in all of this code.
 
 ## 03 &nbsp; How these were built
 
-I use AI coding tools heavily, and the commit history says so.
+I use AI coding tools heavily. The commit history shows it, so here is the part worth knowing.
 
 What those tools did not decide: that the ledger is append-only with compensating entries instead of mutable rows, that a denied permission check is itself an audit event, that clinical access is conditioned on a camper's approval state, that a missing federal statistic must render as missing rather than as zero, and that a document extraction has to cite the page it came from or not be shown at all.
 
-Those are the decisions I would defend in a review. Each one is written down, enforced in code, and covered by a test.
+Each of those is written down, enforced in code, and covered by a test.
 
 ---
 
