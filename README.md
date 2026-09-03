@@ -81,7 +81,7 @@ Four systems presented as places you move through rather than screenshots you sc
 
 ### FutureYou
 
-<img alt="FutureYou's landing page. The headline reads: See Your Future. Decide It Today. Below it, a line explaining that imported bank transactions produce spending, debt payoff timelines and savings projections." src="assets/project-visuals/futureyou.png" width="560">
+<img alt="FutureYou's landing page. The headline reads: See Your Future. Decide It Today. Below it, a line explaining that imported bank transactions produce spending, debt payoff timelines and savings projections." src="assets/project-visuals/futureyou-decision.png" width="560">
 
 Six days at LetsBuild 26.3, aimed at one question: what does this money decision actually cost me later? A deterministic engine computes every projection, and the explanation layer is only allowed to describe what the engine already decided.
 
