@@ -1,51 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" role="img" aria-labelledby="mt md">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" width="1000" height="340" role="img" aria-labelledby="mt md">
   <title id="mt">Elton Sakyi</title>
-  <desc id="md">I build the parts of software that have to be right later. A chain of linked records runs beneath the name, each entry carrying the fingerprint of the one before it.</desc>
+  <desc id="md">I build software that keeps its word. Beneath the line, a trace runs through a series of checkpoints. At one point it lifts away to a correction and returns, and the original segment is still drawn underneath it.</desc>
 
-  <rect width="1000" height="300" fill="#F4F1EA"/>
+  <rect width="1000" height="340" fill="#F4F1EA"/>
 
-  <!-- top rule + folio -->
-  <g font-family="'SF Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace" font-size="11.5" letter-spacing="3" fill="#6B655C">
-    <text x="60" y="46" xml:space="preserve">ON THE RECORD</text>
-  </g>
-  <line x1="60" y1="62" x2="940" y2="62" stroke="#111417" stroke-width="1.6"/>
-
-  <!-- name -->
-  <text x="60" y="150" font-family="Georgia,'Iowan Old Style','Palatino Linotype',Palatino,serif"
-        font-size="76" fill="#111417" letter-spacing="-1.4">Elton Sakyi</text>
+  <!-- signature -->
+  <text x="72" y="62" font-family="'SF Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace"
+        font-size="13" letter-spacing="4.5" fill="#111417" xml:space="preserve">ELTON SAKYI</text>
+  <line x1="72" y1="79" x2="212" y2="79" stroke="#111417" stroke-width="1.5"/>
 
   <!-- thesis -->
-  <text x="62" y="196" font-family="Georgia,'Iowan Old Style','Palatino Linotype',Palatino,serif"
-        font-size="23" font-style="italic" fill="#2E2A24">I build the parts of software that have to be right later.</text>
+  <g font-family="Georgia,'Iowan Old Style','Palatino Linotype',Palatino,serif" font-size="60" fill="#111417" letter-spacing="-1">
+    <text x="70" y="180">I build software</text>
+    <text x="70" y="244">that keeps its word.</text>
+  </g>
 
-  <!-- the chain: each record links to the one before it -->
-  <g transform="translate(60,238)">
-    <line x1="0" y1="14" x2="880" y2="14" stroke="#CFC7B7" stroke-width="1"/>
-    <g fill="none" stroke="#8A8275" stroke-width="1.4">
-      <rect x="0"   y="6" width="16" height="16" rx="2"/>
-      <rect x="56"  y="6" width="16" height="16" rx="2"/>
-      <rect x="112" y="6" width="16" height="16" rx="2"/>
-      <rect x="168" y="6" width="16" height="16" rx="2"/>
-      <rect x="224" y="6" width="16" height="16" rx="2"/>
-      <rect x="280" y="6" width="16" height="16" rx="2"/>
-      <rect x="336" y="6" width="16" height="16" rx="2"/>
-      <rect x="392" y="6" width="16" height="16" rx="2"/>
-      <rect x="448" y="6" width="16" height="16" rx="2"/>
-      <rect x="504" y="6" width="16" height="16" rx="2"/>
-      <rect x="560" y="6" width="16" height="16" rx="2"/>
-      <rect x="616" y="6" width="16" height="16" rx="2"/>
-      <rect x="672" y="6" width="16" height="16" rx="2"/>
-      <rect x="728" y="6" width="16" height="16" rx="2"/>
+  <!-- the trace: checkpoints on a line, one correction that leaves the original in place -->
+  <g>
+    <!-- baseline segments -->
+    <g stroke="#8A8275" stroke-width="1.5">
+      <path d="M84 296 H190"/><path d="M202 296 H308"/><path d="M320 296 H426"/><path d="M438 296 H544"/>
+      <path d="M674 296 H780"/><path d="M792 296 H898"/>
     </g>
-    <!-- the link: a fingerprint carried forward from each block to the next -->
-    <g stroke="#276671" stroke-width="1.4" fill="none" opacity="0.85">
-      <path d="M16 14 h40"/><path d="M128 14 h40"/><path d="M240 14 h40"/>
-      <path d="M352 14 h40"/><path d="M464 14 h40"/><path d="M576 14 h40"/>
-      <path d="M688 14 h40"/>
+    <!-- the original segment, still drawn beneath the correction -->
+    <path d="M556 296 H662" stroke="#B0A794" stroke-width="1.6"/>
+    <!-- the correction: it departs, is recorded, and rejoins -->
+    <path d="M556 296 L598 256" stroke="#111417" stroke-width="1.6" fill="none"/>
+    <path d="M608 256 L662 296" stroke="#111417" stroke-width="1.6" fill="none"/>
+    <rect x="598" y="251" width="10" height="10" fill="#B07D2B"/>
+    <!-- checkpoints -->
+    <g fill="none" stroke="#8A8275" stroke-width="1.5">
+      <rect x="72"  y="290" width="12" height="12"/>
+      <rect x="190" y="290" width="12" height="12"/>
+      <rect x="308" y="290" width="12" height="12"/>
+      <rect x="426" y="290" width="12" height="12"/>
+      <rect x="544" y="290" width="12" height="12"/>
+      <rect x="662" y="290" width="12" height="12"/>
+      <rect x="780" y="290" width="12" height="12"/>
     </g>
     <!-- newest entry, sealed -->
-    <rect x="784" y="6" width="16" height="16" rx="2" fill="#276671" stroke="#276671" stroke-width="1.4"/>
-    <text x="812" y="19" font-family="'SF Mono','SFMono-Regular',Consolas,Menlo,monospace"
-          font-size="11" letter-spacing="1.4" fill="#6B655C">NOW</text>
+    <rect x="898" y="290" width="12" height="12" fill="#276671"/>
   </g>
 </svg>

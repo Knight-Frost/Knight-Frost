@@ -1,81 +1,130 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/masthead-dark.svg">
-  <img alt="Elton Sakyi. I build the parts of software that have to be right later." src="assets/masthead-light.svg">
+  <img alt="Elton Sakyi. I build software that keeps its word." src="assets/masthead-light.svg">
 </picture>
 
-Permissions, financial records, audit trails, and evidence-backed decisions. I turn complicated institutional workflows into systems that can explain what happened, who was allowed to act, and what supports the result.
+Systems where permissions hold, records stay traceable, and consequential decisions carry their evidence.
+
+I am a software engineer working across backend systems and the interfaces on top of them, most often where money, access, evidence, or a decision someone will be held to is involved.
 
 **[Portfolio](https://elton-sakyi-portfolio.vercel.app)** &nbsp;·&nbsp; **[Résumé](https://elton-sakyi-portfolio.vercel.app/Elton_Sakyi_CV.pdf)** &nbsp;·&nbsp; **[LinkedIn](https://www.linkedin.com/in/elton-sakyi/)** &nbsp;·&nbsp; **[eltonsakyi@proton.me](mailto:eltonsakyi@proton.me)**
 
 <br>
 
+---
+
+`01`
+
 ## Wyncrest
 
-![Wyncrest audit log verifying its own SHA-256 hash chain across 88 recorded events, beside a capability check refusing an administrator who was not granted it.](assets/project-visuals/wyncrest.png)
+**A financial record that cannot be quietly rewritten.**
 
-Rental operations for tenants, landlords and administrators. Rent charges, late fees, payments and refunds are stored as an append-only ledger, read back per contract and per role, and every privileged action is appended to a separate hash-chained audit log. A correction is a new entry pointing at the one it corrects, so a dispute is settled from the record rather than argued from memory.
+![Three moments from the Wyncrest admin console. A payment of GHC 5,500 recorded under reference RCPT-20260903-01A068; the linked entries panel showing the rent charge it points back at; and the audit log reporting no broken links across 88 recorded events.](assets/project-visuals/wyncrest.png)
 
-|  |  |
-|---|---|
-| `01 / INVARIANT` | The ledger table has no `updated_at` column |
-| `02 / EVIDENCE` | [1,101 tests passing](https://github.com/Knight-Frost/Wyncrest#test-verification) · [CI](https://github.com/Knight-Frost/Wyncrest/actions) · [the chain, and how it is verified](https://github.com/Knight-Frost/Wyncrest/blob/main/app/Models/AuditLog.php) |
-| `03 / STATE` | Public · Active development · Live demo, HTTP only |
+Rental operations for tenants, landlords and administrators, where every rent charge, late fee, payment and refund lands in one append-only ledger.
 
-**[Repository](https://github.com/Knight-Frost/Wyncrest)** &nbsp;·&nbsp; [Live demo](http://18.216.245.190) &nbsp;·&nbsp; [Authorization model](https://github.com/Knight-Frost/Wyncrest/blob/main/docs/AUTHORIZATION.md)
+A dispute six months from now is settled by whatever that ledger says, so nothing already in it can be edited, and every privileged action has to leave a trace of its own.
 
-<br>
+**Invariant.** Ledger entries are written once. The table carries no `updated_at` column, and a correction is a new entry pointing at the one it corrects.
+
+**Enforcement.** Admin actions are checked on the server against twelve named capabilities, and a refused check writes its own `admin_access_denied` event into a SHA-256 hash-chained audit log.
+
+**Verification.** 1,101 backend tests passing across 4,507 assertions, from the test runner's own output, run on 3 September 2026.
+
+`Public · Active development`
+
+**[Repository](https://github.com/Knight-Frost/Wyncrest)** &nbsp;·&nbsp; [Authorization model](https://github.com/Knight-Frost/Wyncrest/blob/main/docs/AUTHORIZATION.md) &nbsp;·&nbsp; [Test verification](https://github.com/Knight-Frost/Wyncrest#test-verification)
+
+---
+
+`02`
 
 ## Camp Burnt Gin
 
-![The administrator's queue showing three applications, beside the medical directory showing one camper, because clinical access is limited to active campers.](assets/project-visuals/camp-burnt-gin.png)
+**One camper record, four portals, and a server deciding which of them may read what.**
 
-Enrolment and medical workflows for a state programme serving children with special health care needs. Four portals read one camper record. Which fields a portal may load is decided by a policy class on the server, not by the screen that asked, and health data is encrypted at rest.
+![The same synthetic camper, Ethan Johnson, in two portals. The administrator sees enrolment details, the approved application and a risk score. The medical provider sees the clinical record: a seizure action plan and two diagnoses.](assets/project-visuals/camp-burnt-gin.png)
 
-|  |  |
-|---|---|
-| `01 / INVARIANT` | Clinical access is conditioned on a camper being active, not on rank |
-| `02 / EVIDENCE` | [Encrypted attributes, model by model](https://github.com/Knight-Frost/camp-burnt-gin-platform/tree/main/backend/camp-burnt-gin-api/app/Models) · [Larastan, Pint and PHPUnit on PHP 8.2 to 8.4](https://github.com/Knight-Frost/camp-burnt-gin-platform/blob/main/.github/workflows/ci.yml) |
-| `03 / STATE` | Public · Not deployed · I wrote the API, client, authorization, medical domain, tests and CI; [teammates led QA and the earlier prototype](https://github.com/Knight-Frost/camp-burnt-gin-platform/blob/main/CONTRIBUTORS.md) |
+Enrolment, document compliance and medical workflows for the South Carolina programme serving children with special health care needs.
 
-**[Repository](https://github.com/Knight-Frost/camp-burnt-gin-platform)** &nbsp;·&nbsp; [Contributors](https://github.com/Knight-Frost/camp-burnt-gin-platform/blob/main/CONTRIBUTORS.md)
+Four portals read one camper record, so the real question is never what a screen chooses to show. It is what the server will let a role load.
+
+**Invariant.** Clinical access is conditioned on a camper being actively enrolled rather than on rank. The medical directory lists one camper where the administrator sees the whole applicant queue.
+
+**Enforcement.** Role middleware, controller authorization and Eloquent policies each decide independently, and health data is encrypted at rest across 94 attributes.
+
+**Disclosure.** The strict boundary does not hold for admin roles yet. The repository says so at the top of its access control section, before it says anything else about access.
+
+`Public · No public deployment`
+
+Built as a four person university capstone. I was the primary engineer for the current Laravel and React platform, including its authorization model, medical records domain, tests and CI. The complete contributor record is documented in the repository.
+
+**[Repository](https://github.com/Knight-Frost/camp-burnt-gin-platform)** &nbsp;·&nbsp; [The medical data boundary](https://github.com/Knight-Frost/camp-burnt-gin-platform/blob/main/README.md#3-the-medical-data-boundary) &nbsp;·&nbsp; [Contributors](https://github.com/Knight-Frost/camp-burnt-gin-platform/blob/main/CONTRIBUTORS.md)
 
 <br>
 
----
-
-### Also public
-
-**[Portfolio](https://github.com/Knight-Frost/portfolio)** &nbsp; `Live · Maintained`<br>
-Four modules that run each project's real logic instead of showing pictures of it. One hand-written `requestAnimationFrame` camera, no animation library. [Open it](https://elton-sakyi-portfolio.vercel.app)
-
-**[FutureYou](https://github.com/Knight-Frost/Future-You)** &nbsp; `Prototype · Hackathon build`<br>
-Six days at LetsBuild 26.3. Models what a money decision costs before you make it: a deterministic engine computes, and the explanation layer may only describe. No test suite.
-
-**[Timeloop Snake](https://github.com/Knight-Frost/timeloop-snake)** &nbsp; `Public · No longer deployed`<br>
-A Canvas game where a ghost of your previous run returns every fourteen seconds and repeats your moves.
-
-### In private development
-
-Two systems are still private, so nothing here is linked and none of it carries the weight of the work above. **Policora** ties each extracted insurance-policy fact to its source page. **Pathfinder** joins federal labour and education data without losing which source each figure came from. `Private · Publication review`
+`Laravel · PHP · React · TypeScript · Next.js · Java · Spring Boot · Python · PostgreSQL`
 
 ---
 
-### How I work
+`03`
 
-**Corrections preserve history.** A financial error creates a compensating entry. The original stays readable. [`create_ledger_entries_table.php`](https://github.com/Knight-Frost/Wyncrest/blob/main/database/migrations/2024_01_01_000015_create_ledger_entries_table.php)
+## Also public
 
-**Permission is decided on the server.** An interface can hide a control. Only the server can refuse the action, and the refusal is logged. [`EnsureAdminCan.php`](https://github.com/Knight-Frost/Wyncrest/blob/main/app/Http/Middleware/EnsureAdminCan.php)
+### Portfolio
 
-**Absence stays absence.** A missing figure renders as missing. It is never quietly turned into a zero.
+![The portfolio's work section. A full-bleed heading reading "Pick a world. The camera goes there", above two project cards, Camp Burnt Gin and Wyncrest, each opening into its own scene.](assets/project-visuals/portfolio.png)
 
-**Unfinished work says so.** A capability defined but not yet enforced reports itself that way in code. [`AdminCapability.php`](https://github.com/Knight-Frost/Wyncrest/blob/main/app/Enums/AdminCapability.php)
+Four systems presented as places you move through rather than screenshots you scroll past. The camera, the scroll choreography and the scene transitions are hand written against one animation frame loop, with no animation library underneath.
 
-### How these were built
+`Live · Maintained` &nbsp; **[Open it](https://elton-sakyi-portfolio.vercel.app)** &nbsp;·&nbsp; [Repository](https://github.com/Knight-Frost/portfolio)
 
-I use AI coding tools as part of implementation and review. Architecture, security boundaries and public claims remain mine. The decisions that matter are recorded in code, tests and documentation, so they can be inspected independently of how quickly they were produced.
+### FutureYou
 
-### Now
+<img alt="FutureYou's landing page. The headline reads: See Your Future. Decide It Today. Below it, a line explaining that imported bank transactions produce spending, debt payoff timelines and savings projections." src="assets/project-visuals/futureyou.png" width="560">
 
-Preparing Policora for a public read. Available for full-time software engineering roles, backend and platform work most of all.
+Six days at LetsBuild 26.3, aimed at one question: what does this money decision actually cost me later? A deterministic engine computes every projection, and the explanation layer is only allowed to describe what the engine already decided.
 
-**[eltonsakyi@proton.me](mailto:eltonsakyi@proton.me)**
+`Prototype · Hackathon build` &nbsp; **[Repository](https://github.com/Knight-Frost/Future-You)**
+
+### Timeloop Snake
+
+A Canvas game where a ghost of your previous run returns every fourteen seconds and repeats your moves. `Public · No longer deployed` &nbsp; [Repository](https://github.com/Knight-Frost/timeloop-snake)
+
+---
+
+`04`
+
+## In private development
+
+**Policora** ties each extracted insurance policy fact back to the page it came from. **Pathfinder** joins federal labour and education data without losing which source each figure came from. Both stay private until their publication and licensing review is finished, so neither is linked here.
+
+`Private · Publication review`
+
+---
+
+`05`
+
+## How I work
+
+**01 · History is preserved.** A correction adds an entry. It does not quietly overwrite the one that was wrong. [`create_ledger_entries_table.php`](https://github.com/Knight-Frost/Wyncrest/blob/main/database/migrations/2024_01_01_000015_create_ledger_entries_table.php)
+
+**02 · Permission is enforced.** An interface can guide someone away from an action. Only the server can refuse it, and the refusal is written down. [`EnsureAdminCan.php`](https://github.com/Knight-Frost/Wyncrest/blob/main/app/Http/Middleware/EnsureAdminCan.php)
+
+**03 · Absence stays visible.** A missing figure renders as missing. It is never quietly converted into a zero, a certainty, or an approval. [`AdminCapability.php`](https://github.com/Knight-Frost/Wyncrest/blob/main/app/Enums/AdminCapability.php)
+
+**04 · Claims carry evidence.** A result that matters points back at the code, the source data, or the document behind it. [`AUTHORIZATION.md`](https://github.com/Knight-Frost/Wyncrest/blob/main/docs/AUTHORIZATION.md)
+
+---
+
+`06`
+
+## Tools and ownership
+
+I use AI tools to accelerate implementation and review. Architecture, security boundaries, product constraints and every public claim remain my responsibility. The decisions that matter are recorded in code, tests and technical documents, so the work can be inspected independently of how quickly it was produced.
+
+---
+
+I am looking for a team where difficult systems, careful judgement and clear ownership matter.
+
+**[eltonsakyi@proton.me](mailto:eltonsakyi@proton.me)** &nbsp;·&nbsp; **[LinkedIn](https://www.linkedin.com/in/elton-sakyi/)** &nbsp;·&nbsp; **[Résumé](https://elton-sakyi-portfolio.vercel.app/Elton_Sakyi_CV.pdf)** &nbsp;·&nbsp; **[Portfolio](https://elton-sakyi-portfolio.vercel.app)**
