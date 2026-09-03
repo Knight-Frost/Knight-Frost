@@ -18,7 +18,7 @@ one point of correction. Neither is used decoratively, and no third accent is in
 
 ## Masthead
 
-`assets/masthead-light.svg` and `assets/masthead-dark.svg` are the same 1000x340 composition with the
+`assets/signature-light.svg` and `assets/signature-dark.svg` are the same 1000x340 composition with the
 palette inverted, served through a `<picture>` element so GitHub selects by `prefers-color-scheme`.
 The `img` element carries the light variant as its fallback plus alt text repeating the name and the
 thesis, so the page still reads correctly with images disabled.

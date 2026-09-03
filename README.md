@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/masthead-dark.svg">
-  <img alt="Elton Sakyi. I build software that keeps its word." src="assets/masthead-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/signature-dark.svg">
+  <img alt="Elton Sakyi. I build software that keeps its word." src="assets/signature-light.svg">
 </picture>
 
 Systems where permissions hold, records stay traceable, and consequential decisions carry their evidence.
@@ -19,7 +19,7 @@ I am a software engineer working across backend systems and the interfaces on to
 
 **A financial record that cannot be quietly rewritten.**
 
-![Three moments from the Wyncrest admin console. A payment of GHC 5,500 recorded under reference RCPT-20260903-01A068; the linked entries panel showing the rent charge it points back at; and the audit log reporting no broken links across 88 recorded events.](assets/project-visuals/wyncrest.png)
+![Three moments from the Wyncrest admin console. A payment of GHC 5,500 recorded under reference RCPT-20260903-01A068; the linked entries panel showing the rent charge it points back at; and the audit log reporting no broken links across 88 recorded events.](assets/project-visuals/wyncrest-ledger.png)
 
 Rental operations for tenants, landlords and administrators, where every rent charge, late fee, payment and refund lands in one append-only ledger.
 
@@ -43,7 +43,7 @@ A dispute six months from now is settled by whatever that ledger says, so nothin
 
 **One camper record, four portals, and a server deciding which of them may read what.**
 
-![The same synthetic camper, Ethan Johnson, in two portals. The administrator sees enrolment details, the approved application and a risk score. The medical provider sees the clinical record: a seizure action plan and two diagnoses.](assets/project-visuals/camp-burnt-gin.png)
+![The same synthetic camper, Ethan Johnson, in two portals. The administrator sees enrolment details, the approved application and a risk score. The medical provider sees the clinical record: a seizure action plan and two diagnoses.](assets/project-visuals/camp-burnt-gin-portals.png)
 
 Enrolment, document compliance and medical workflows for the South Carolina programme serving children with special health care needs.
 
