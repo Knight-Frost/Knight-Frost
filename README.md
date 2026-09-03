@@ -15,9 +15,11 @@ Permissions, financial records, audit trails, and evidence-backed decisions. I t
 
 Rental operations for tenants, landlords and administrators, built so a dispute is settled from the record rather than argued from memory. Charges and payments are written once, and a correction is a new entry pointing at the one it corrects.
 
-`01 / INVARIANT`  The ledger table has no `updated_at` column
-`02 / EVIDENCE`  1,101 tests passing · CI green · chain verified across 88 events
-`03 / STATE`  Public · Active development · Live demo, HTTP only
+|  |  |
+|---|---|
+| `01 / INVARIANT` | The ledger table has no `updated_at` column |
+| `02 / EVIDENCE` | 1,101 tests passing · CI green · chain verified across 88 events |
+| `03 / STATE` | Public · Active development · Live demo, HTTP only |
 
 **[Repository](https://github.com/Knight-Frost/Wyncrest)** &nbsp;·&nbsp; [Live demo](http://18.216.245.190) &nbsp;·&nbsp; [Authorization model](https://github.com/Knight-Frost/Wyncrest/blob/main/docs/AUTHORIZATION.md)
 
@@ -29,9 +31,11 @@ Rental operations for tenants, landlords and administrators, built so a dispute 
 
 Enrolment and medical workflows for a state programme serving children with special health care needs. Four role-scoped portals read one camper record, and what each portal may see is decided by a policy class rather than by the screen that asked.
 
-`01 / INVARIANT`  Clinical access is conditioned on a camper being active, not on rank
-`02 / EVIDENCE`  94 encrypted fields across 21 models · CI runs Larastan, Pint and PHPUnit on PHP 8.2 to 8.4
-`03 / STATE`  Public · Primary engineer on a four-person capstone · Not deployed
+|  |  |
+|---|---|
+| `01 / INVARIANT` | Clinical access is conditioned on a camper being active, not on rank |
+| `02 / EVIDENCE` | 94 encrypted fields across 21 models · Larastan, Pint and PHPUnit on PHP 8.2 to 8.4 in CI |
+| `03 / STATE` | Public · Primary engineer on a four-person capstone · Not deployed |
 
 **[Repository](https://github.com/Knight-Frost/camp-burnt-gin-platform)** &nbsp;·&nbsp; [Contributors](https://github.com/Knight-Frost/camp-burnt-gin-platform/blob/main/CONTRIBUTORS.md)
 
@@ -41,13 +45,13 @@ Enrolment and medical workflows for a state programme serving children with spec
 
 ### Also public
 
-**[Portfolio](https://github.com/Knight-Frost/portfolio)** &nbsp; `Live · Maintained`
+**[Portfolio](https://github.com/Knight-Frost/portfolio)** &nbsp; `Live · Maintained`<br>
 Four modules that run each project's real logic instead of showing pictures of it. One hand-written `requestAnimationFrame` camera, no animation library. [Open it](https://elton-sakyi-portfolio.vercel.app)
 
-**[FutureYou](https://github.com/Knight-Frost/Future-You)** &nbsp; `Prototype · Hackathon build`
+**[FutureYou](https://github.com/Knight-Frost/Future-You)** &nbsp; `Prototype · Hackathon build`<br>
 Six days at LetsBuild 26.3. Models what a money decision costs before you make it: a deterministic engine computes, and the explanation layer may only describe. No test suite.
 
-**[Timeloop Snake](https://github.com/Knight-Frost/timeloop-snake)** &nbsp; `Public · No longer deployed`
+**[Timeloop Snake](https://github.com/Knight-Frost/timeloop-snake)** &nbsp; `Public · No longer deployed`<br>
 A Canvas game where a ghost of your previous run returns every fourteen seconds and repeats your moves.
 
 ### In private development
